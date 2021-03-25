@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { NewsPage } from '../../pages/News';
 
 const apiUrl = process.env.REACT_APP_API_URL;
-
-NewsList.propTypes = {
-  id: PropTypes.string.isRequired
-}
 
 export function NewsList() {
   let { id } = useParams();
@@ -39,6 +36,7 @@ export function NewsList() {
       }
 
       setData(json);
+
     }
     fetchData();
   }, [id]);
@@ -55,12 +53,11 @@ export function NewsList() {
     );
   }
 
-  const title = 'frétt';
-
-  let news = data.items.title || [];
-
+  const title = data.title;
+  let news = data.items|| [];
+  
   return (
-    <News
+    <NewsPage
       title={title}
       news={news}
     />

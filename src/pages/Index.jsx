@@ -1,13 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NewsPage } from '../pages/News'
 
-Index.propTypes = {
-  title: PropTypes.string.isRequired
-}
-
-export function Index() {
+export function Index({ title, news}) {
   // TODO útfæra yfirlitssíðu
   return (
-    <h1>Halló</h1>
-  );
+    <section>
+    <ul>
+      {news.length === 0 && (
+         <li>Engar fréttir</li>
+          )}
+    </ul>
+    { news.map((n, i) => {
+      return(
+        <div>
+          <a href={n.link} key={i} > {n.title} </a>
+        </div>
+      );
+      })}
+    
+    </section>
+    );
 }

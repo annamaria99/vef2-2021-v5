@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Index } from '../../pages/Index'
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
 News.propTypes = {
-  id: PropTypes.string.isRequired,
   news: PropTypes.arrayOf(PropTypes.object)
 }
 
-export function News({ }) {
+export function News() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(false);
@@ -54,13 +54,11 @@ export function News({ }) {
     );
   }
 
-  const title = 'fréttir';
-
-  let news = data.title || [];
+  let news = data || [];
+  console.log(news);
 
   return (
-    <News
-      title={title}
+    <Index
       news={news}
     />
   );
