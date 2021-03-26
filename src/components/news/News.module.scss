@@ -1,0 +1,20 @@
+.news {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.newsContent {
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #0000; 
+    border-radius: 5px;
+}
+
+
+.link {
+    a {
+        text-decoration: none;
+        color:black;
+    }
+
+}

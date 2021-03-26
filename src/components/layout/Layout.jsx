@@ -9,6 +9,10 @@ export function Layout({ title, children }) {
       <main className={s.layout__main}>
         {children}
       </main>
+      <hr></hr>
+      <div className={s.link}>
+        <p>Fréttir frá <a href="https://www.ruv.is/" > RÚV</a></p>
+      </div>
     </div>
   )
 }

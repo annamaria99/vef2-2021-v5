@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { NavLink} from 'react-router-dom';
 import { NewsList } from '../news-list/NewsList';
+import s from './News.module.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
-
-News.propTypes = {
-  news: PropTypes.arrayOf(PropTypes.object)
-}
 
 export function News() {
   const [loading, setLoading] = useState(false);
@@ -21,7 +17,7 @@ export function News() {
 
       let json;
 
-      const url = `https://vef2-2021-ruv-rss-json-proxy.herokuapp.com/`;
+      const url = apiUrl;
 
       try {
         const result = await fetch(url);
@@ -61,12 +57,12 @@ export function News() {
     news[i] = {id: data[i].id, title: data[i].title, url: data[i].url};
   }
   return (
-    <div>
+    <div className={s.news}>
       { news.map((n, i) => {
       return(
-        <div>
-        <NewsList key={i} title={n.id} id={n.id}/>
-        <NavLink to={`/${n.id}`}>Allar fréttir</NavLink>
+        <div className={s.newsContent}>
+        <NewsList key={i} title={n.id} id={n.id} allNews={false}/>
+        <NavLink className={s.link} to={`/${n.id}`}>Allar fréttir</NavLink>
         </div>
       );
       })}

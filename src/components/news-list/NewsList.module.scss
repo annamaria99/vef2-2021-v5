@@ -1,0 +1,33 @@
+.allNewsList {
+    border: 1px solid rgb(0, 0, 0); 
+    border-radius: 5px;
+    background: #fdf5e6;
+
+    h1 {
+        margin-left: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+ .singleNews {
+     margin-bottom: 5px;
+     margin-left: 1rem;
+     margin-right: 1rem;
+
+     a {
+         color:rgb(0, 0, 0);
+     }
+ }
+
+ .backLink {
+     margin-bottom: 1rem;
+     margin-top: 2rem;
+     margin-left: 1rem;
+
+     a {
+         color: rgb(0, 0, 0);
+         text-decoration: none;
+         font-weight: bold;
+     }
+
+ }
