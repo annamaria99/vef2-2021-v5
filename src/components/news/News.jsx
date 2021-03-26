@@ -56,19 +56,15 @@ export function News() {
     news[i] = {id: data[i].id, title: data[i].title, url: data[i].url};
   }
   return (
-    <div>
     <div className={s.news}>
       { news.map((n, i) => {
       return(
         <div  key={i} className={s.newsContent}>
-        <NewsList title={n.id} id={n.id} allNews={false}/>
+          <NewsList title={n.id} id={n.id} allNews={false}/>
         </div>
-      );
+        );
       })}
 
     </div>
-
-    </div>
-
-  );
+    );
 }

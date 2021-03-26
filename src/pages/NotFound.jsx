@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 export function NotFound() {
   return (
-    <h1>Síða fannst ekki</h1> 
+    <h1>Síða fannst ekki</h1>
   );
 }
