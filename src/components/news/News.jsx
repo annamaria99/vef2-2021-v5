@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink} from 'react-router-dom';
 import { NewsList } from '../news-list/NewsList';
 import s from './News.module.scss';
 
@@ -60,9 +59,8 @@ export function News() {
     <div className={s.news}>
       { news.map((n, i) => {
       return(
-        <div className={s.newsContent}>
-        <NewsList key={i} title={n.id} id={n.id} allNews={false}/>
-        <NavLink className={s.link} to={`/${n.id}`}>Allar fréttir</NavLink>
+        <div  key={i} className={s.newsContent}>
+        <NewsList title={n.id} id={n.id} allNews={false}/>
         </div>
       );
       })}

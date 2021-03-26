@@ -26,15 +26,13 @@ export function NewsList({id,allNews}) {
         const result = await fetch(url);
 
         if (result.status === 404) {
-          setStatus(404);
+          setStatus('404 villa');
+          console.log("Villa: 404");
         }
 
         if (!result.ok) {
           throw new Error('result not ok');
         }
-
-        console.log(result.status);
- 
 
         json = await result.json();
       } catch (e) {
@@ -62,10 +60,12 @@ export function NewsList({id,allNews}) {
     );
   }
 
+  console.log("status : " + status);
+
   if(status) {
     return (
       <Route component={NotFound} />
-    )
+    );
   }
 
   const title = data.title;
@@ -89,19 +89,27 @@ export function NewsList({id,allNews}) {
     </ul>
     { news.slice(0,amount).map((n, i) => {
       return(
-        <div className={s.singleNews}>
-          <a href={n.link} key={i} > {n.title} </a>
+        <div className={s.singleNews} key={i}>
+          <a href={n.link}  > {n.title} </a>
+          
         </div>
       );
       })}
       {(() => {
         if (amount === news.length) {
           return(
-            <div className={s.backLink}>
+            <div className={s.link}>
             <NavLink to='/'>Til baka</NavLink>
             </div>
             );
           }
+        else {
+          return(
+            <div className={s.link}>
+              <NavLink to={`/${id}`}>Allar fréttir</NavLink>
+            </div>
+          );
+        }
         })()}
     </div>
   );
