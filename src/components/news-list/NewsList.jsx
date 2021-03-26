@@ -26,8 +26,7 @@ export function NewsList({id,allNews}) {
         const result = await fetch(url);
 
         if (result.status === 404) {
-          setStatus('404 villa');
-          console.log("Villa: 404");
+          setStatus('404');
         }
 
         if (!result.ok) {
@@ -48,6 +47,16 @@ export function NewsList({id,allNews}) {
     fetchData();
   }, [id]);
 
+
+  console.log("status : " + status);
+
+  if(status) {
+    console.log("status if")
+    return (
+      <Route component={NotFound} />
+    );
+  }
+  
   if (error) {
     return (
       <p>Villa kom upp: {error}</p>
@@ -57,14 +66,6 @@ export function NewsList({id,allNews}) {
   if (loading) {
     return (
       <p>Sæki gögn...</p>
-    );
-  }
-
-  console.log("status : " + status);
-
-  if(status) {
-    return (
-      <Route component={NotFound} />
     );
   }
 

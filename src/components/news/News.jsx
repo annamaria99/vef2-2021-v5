@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NewsList } from '../news-list/NewsList';
 import s from './News.module.scss';
+import { Footer } from '../footer/Footer';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -56,6 +57,7 @@ export function News() {
     news[i] = {id: data[i].id, title: data[i].title, url: data[i].url};
   }
   return (
+    <div>
     <div className={s.news}>
       { news.map((n, i) => {
       return(
@@ -64,6 +66,8 @@ export function News() {
         </div>
       );
       })}
+
+    </div>
 
     </div>
 
