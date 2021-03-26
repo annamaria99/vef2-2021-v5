@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NewsList } from '../news-list/NewsList';
 import s from './News.module.scss';
-import { Footer } from '../footer/Footer';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
