@@ -1,28 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { NavLink} from 'react-router-dom';
+import { useParams } from 'react-router';
+import { NewsList } from '../components/news-list/NewsList'
 
-NewsPage.propTypes = {
-  title: PropTypes.string,
-  news: PropTypes.arrayOf(PropTypes.object)
-}
-
-export function NewsPage({title, news}) {
+export function NewsPage() {
+  let {id} = useParams();
   return (
-  <section>
-  <h1>{title}</h1>
-  <ul>
-    {news.length === 0 && (
-       <li>Engar fréttir</li>
-        )}
-  </ul>
-  { news.map((n, i) => {
-    return(
-      <div>
-        <a href={n.link} key={i} > {n.title} </a>
-      </div>
-    );
-    })}
-  
-  </section>
+    <div>
+     <NewsList id={id}/>
+     <NavLink to='/'>Tilbaka</NavLink>
+    </div>
   );
 }

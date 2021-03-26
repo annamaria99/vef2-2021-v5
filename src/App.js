@@ -1,15 +1,15 @@
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
-import { News } from './components/news/News';
 import { NotFound } from './pages/NotFound';
-import { NewsList } from './components/news-list/NewsList'
+import { NewsPage} from './pages/News';
+import { Index } from './pages/Index';
 
 export default function App() {
   return (
     <Layout title="RÚV fréttir">
       <Switch>
-        <Route exact path="/" component={News}/>
-        <Route exact path="/:id" component={NewsList} />
+        <Route exact path="/" component={Index}/>
+        <Route exact path="/:id" component={NewsPage} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { NewsPage } from '../../pages/News';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-export function NewsList() {
-  let { id } = useParams();
+export function NewsList({id}) {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -57,9 +54,21 @@ export function NewsList() {
   let news = data.items|| [];
   
   return (
-    <NewsPage
-      title={title}
-      news={news}
-    />
+    <section>
+    <h1>{title}</h1>
+    <ul>
+      {news.length === 0 && (
+         <li>Engar fréttir</li>
+          )}
+    </ul>
+    { news.map((n, i) => {
+      return(
+        <div>
+          <a href={n.link} key={i} > {n.title} </a>
+        </div>
+      );
+      })}
+    
+    </section>
   );
 }
